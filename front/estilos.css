@@ -1,0 +1,36 @@
+body{
+/*     background-color: rgba(10,10,10,0.1) */
+}
+header{
+    background: url(img/limp.png);
+    background-size: 800px; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 0 auto;
+    height: 500px;
+}
+#logo{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+#login{
+    padding-top:10px; 
+}
+
+#nav{
+    background-color: ghostwhite;
+}
+
+#productos{
+    margin-top: 50px;
+}
+
+#buscadorArticulos{
+    margin-top: 15px;
+}
+#boton{
+    margin-top: 10px;
+}

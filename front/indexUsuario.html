@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilosUsuarios.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <header data-aos="zoom-in" data-aos-delay="20">
+    <div class="container col-md-6" id="navUsuario">
+        <ul>
+            <li>Hola</li>
+        </ul>
+    </div>
+    <form action="Post">
+      <div data-aos="fade-left" data-aos-delay="400" id="buscadorArticulos" class=" container col-md-12 row justify-content-end">
+        <input type="text" placeholder="Busca tus articulos">
+        <button type="submit" id="botonBuscar" class="nav-link active btn btn-primary">Buscar</button>
+      </div>
+  </header>
+
+  <div class="container col-md-6" id="nav" data-aos="fade-down" data-aos-delay="400">
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item">
+        <a id="boton1" class="nav-link active btn btn-primary" onclick="precionarBoton(1)" href="#">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a id="boton2" class="nav-link" onclick="precionarBoton(2)" href="productos.html">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a id="boton3" class="nav-link" onclick="precionarBoton(3)" href="promos.html">Promos</a>
+      </li>
+    </ul>
+  </div>
+
+  <h2>Inicio</h2>
+
+  <!-- Modal Sesion -->
+  <div class="modal fade" id="InicioSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <form class="form-reg" action="">
+              <div id="logo">
+                  <img src="img/limp.png" alt="" width="100px">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                      aria-describedby="inputGroup-sizing-sm">
+                  </div>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="btn-form">
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                      </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Registro -->
+  <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header justify-content-center">
+          <form class="form-reg " action="">
+            <div id="logo">
+              <img src="img/limp.png" alt="" width="100px">
+            </div>
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <!-- <input class="input" type="text" placeholder="&#128100;Nombre" required autofocus> -->
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Apellido</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <!-- <input class="input" type="text" placeholder="&#128100;Apellidos" required autofocus> -->
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">@</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Username" required aria-label="Username"
+                aria-describedby="addon-wrapping">
+            </div>
+            <!-- <input class="input" type="email" placeholder="&#9993;Correo Electronico"> -->
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Telefono</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <!-- <input class="input" type="text" placeholder="&#128222;Telefono" required > -->
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Contraseña</span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="btn-form">
+              <button type="submit" class="btn btn-primary">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<nav id="nav-header-menu">
+					
+						
+						
+							
+        <div class="nav-header-user">
+            
+            <label for="nav-header-user-switch"><a href="https://myaccount.mercadolibre.com.ar/summary" class="nav-header-user-myml"><span class="nav-header-avatar-user" data-js="user-menu:nav-header-avatar-user"><i id="" class="nav-icon-user nav-header-avatar-user-img"></i></span><span class="nav-header-username">DIEGO GA...</span><span class="nav-header-username-chevron"></span></a></label>
+            <input type="checkbox" id="nav-header-user-switch">
+            <nav class="nav-header-user-layer user-menu user-menu--hidden" style="right: -223.812px;">
+        <div class="user-menu__main">
+          
+        <div class="user-menu__user-info-outer-container">
+          <div class="user-menu__user-info-inner-container">
+            <div class="user-menu__user-badge">
+              <div class="user-menu__user-badge-image">
+                
+        
+        <div class="user-menu__loyalty-components">
+          
+      <svg class="user-menu__user-progress user-menu--level-1" viewBox="0 0 100 100">
+          <path class="base" stroke-linecap="round" stroke-width="3" stroke="#eee" fill="none" d="M50 10
+              a 40 40 0 0 1 0 80
+              a 40 40 0 0 1 0 -80">
+          </path>
+          <path class="progress" stroke-linecap="round" stroke-width="3" percentage="60" stroke-dasharray="50,999" fill="none" d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"></path>
+      </svg>
+    
+        </div>
+      
+        
+      <form data-js="user-menu:avatar-form" method="POST" action="//www.mercadolibre.com.ar/menu/user/picture" enctype="multipart/form-data" class="user-menu__avatar-form">
+        <label class="user-menu__avatar-label">
+          <span class="user-menu__avatar-text">Subir foto</span>
+          <span data-js="user-menu:avatar-icon"><svg class="user-menu__user-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 68"><defs><circle id="user-menu__avatar-circle" cx="22.706" cy="22.706" r="22.706"></circle></defs><g fill="none" fill-rule="evenodd"><circle cx="34" cy="34" r="34" fill="#EEE"></circle><g transform="translate(11 9)"><mask id="user-menu__avatar-mask" fill="#fff"><use xlink:href="#user-menu__avatar-circle"></use></mask><path fill="#BBB" fill-rule="nonzero" d="M23.011 62.588c-8.466 0-15.329-6.863-15.329-15.329 0-8.466 6.863-15.33 15.33-15.33 8.465 0 15.328 6.864 15.328 15.33 0 8.466-6.863 15.33-15.329 15.33zm0-1.419c7.682 0 13.91-6.228 13.91-13.91s-6.228-13.91-13.91-13.91-13.91 6.228-13.91 13.91 6.228 13.91 13.91 13.91z" mask="url(#user-menu__avatar-mask)"></path></g><path fill="#BBB" fill-rule="nonzero" d="M34.062 33.311a6.971 6.971 0 0 0 0-13.942v1.419a5.552 5.552 0 1 1 0 11.104v1.42z"></path><path fill="#BBB" fill-rule="nonzero" d="M34.009 37.233c-6.046 0-10.947-4.9-10.947-10.946 0-6.046 4.901-10.947 10.947-10.947 6.045 0 10.946 4.901 10.946 10.947 0 6.045-4.9 10.946-10.946 10.946zm0-1.419a9.527 9.527 0 1 0 0-19.055 9.527 9.527 0 0 0 0 19.055z"></path><path fill="#EEE" d="M41.056 15.442l2.817 2.816-3.755 3.755-2.816-2.816z"></path></g></svg></span>
+          <img data-js="user-menu:avatar-picture" hidden="" class="user-menu__avatar-picture">
+          <input data-js="user-menu:avatar-control" name="file" type="file" class="user-menu__avatar-control" accept="image/jpeg,.jpg,image/gif,.gif,image/png,.png,.jpeg,image/webp,.webp">
+        </label>
+      </form>
+    
+      
+              </div>
+              <p class="user-menu__user-badge-title">¡Hola, DIEGO GASTON!</p>
+              <a href="https://www.mercadolibre.com.ar/mercadopuntos#menu-user" class="user-menu__user-badge-email user-menu--level-1">
+          Nivel 1 - Inicial<span class="user-menu--level-1 user-menu__user-badge-email__chevron"></span>
+        </a>
+              
+            </div>
+        </div>
+        <a href="https://myaccount.mercadolibre.com.ar/summary#menu-user" class="user-menu__primary-action ui-button ui-button--primary" data-id="my-account" rel="nofollow">
+          Mi cuenta
+        </a>
+      </div>
+      
+          
+        <div class="user-menu__shortcuts ">
+          <a href="https://myaccount.mercadolibre.com.ar/purchases/list#menu-user" data-id="purchases" rel="nofollow">Compras</a><a href="https://myaccount.mercadolibre.com.ar/sales/list#menu-user" data-id="sales" rel="nofollow">Ventas</a><a href="https://myaccount.mercadolibre.com.ar/profile#menu-user" data-id="personal-info" rel="nofollow">Mis datos</a><a href="https://accountrecovery.mercadolibre.com.ar/collect/userInfo#menu-user" data-id="security" rel="nofollow">Seguridad</a><a href="https://www.mercadolibre.com/jms/mla/lgz/logout?go=https://www.mercadolibre.com.ar#menu-user" data-id="logout" rel="nofollow">Salir</a>
+        </div>
+      
+        </div>
+        <div class="user-menu__old">
+          
+                
+                <a tabindex="2" class="option-my-account" href="https://myaccount.mercadolibre.com.ar" rel="nofollow">Mi cuenta</a>
+            
+                
+                    
+                    <a tabindex="3" class="nav-header-user-layer-logout" href="https://www.mercadolibre.com/jms/mla/lgz/logout/?go=https%3A%2F%2Fauto.mercadolibre.com.ar%2FMLA-801241759-nissan-versa-16-sense-mt-puredrive-ano-2017-_JM" rel="nofollow">Salir</a>
+                
+            
+        </div>
+        <span class="user-menu__chevron" style="right: 233px;"></span>
+      </nav>
+
+
+
+
+
+
+
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

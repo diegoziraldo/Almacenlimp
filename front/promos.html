@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <title>Document</title>
+</head>
+<body>
+<header>
+  <form action="Post">
+    <div id="buscadorArticulos" class=" container col-md-12 row justify-content-end">
+      <input type="text" placeholder="Busca tus articulos">
+      <button type="submit" id="botonBuscar" class="nav-link active btn btn-primary">Buscar</button>
+    </div>
+
+
+    <!-- Loguearse -->
+    <div id="login">
+        <div id="boton" class="container col-md-12 row justify-content-end">
+          <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro"
+            href="formularioregistro.html">Registrate</a>
+      </div>
+  
+      <!-- Registrarse -->
+        <div id="boton" class="container col-md-12 row justify-content-end">
+          <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#InicioSesion"
+            href="formularioingreso.html">Iniciar Sesion</a>
+        </div>
+      </div>
+</header>
+
+<div class="container col-md-6" id="nav">
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a id="boton1" class="nav-link" onclick="precionarBoton(1)" href="index.html">Inicio</a>
+    </li>
+    <li class="nav-item">
+      <a id="boton2" class="nav-link" onclick="precionarBoton(2)" href="productos.html">Productos</a>
+    </li>
+    <li class="nav-item">
+      <a id="boton3" class="nav-link active btn btn-primary" onclick="precionarBoton(3)" href="">Promos</a>
+    </li>
+  </ul>
+</div>
+
+<div class="contenedor">
+
+
+
+<div class="container" id="productos">
+        <div class="row ">
+          <div class="card col-md-4" style="width: 18rem;" data-aos="fade-in" data-aos-delay="150">
+            <img src="img/1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Detergente</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+          <div class="card col-md-4" style="width: 18rem;" data-aos="fade-in" data-aos-delay="150">
+            <img src="img/2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Perfume para pisos</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+          <div class="card col-md-4" style="width: 18rem;" data-aos="fade-in" data-aos-delay="150">
+            <img src="img/3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Bolsas</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <a href="#" class="btn btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+</body>
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
