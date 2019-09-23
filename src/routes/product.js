@@ -13,6 +13,7 @@ var md_auth = require('../middleware/auth')
 api.post('/saveProduct',ProductController.saveProduct)
 api.get('/getAllProduct/:page?',ProductController.getAllProduct)
 api.post('/saveImage',md_upload,ProductController.uploadImage)
+api.get('/getImageFile/:imageFile',ProductController.getImageFile)
 
 
 module.exports=api

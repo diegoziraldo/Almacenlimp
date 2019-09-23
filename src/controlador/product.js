@@ -69,6 +69,19 @@ function uploadImage(req,res){
         return res.status(200).send({message:'No se han subido archivos'})
     }
 }
+function getImageFile(req,res){
+    var imageFile= req.params.imageFile;
+    var pathFile='./src/upload/product/'+imageFile
+
+    fs.exists(pathFile,(exists)=>{
+        if(exists){
+            res.sendFile(path.resolve(pathFile))
+        }else{
+            res.status(400).send({message:'El archivo no fue encotrado'})
+        }
+    })
+}
+
 function removeFilesOfUploads(res,file_path,message){
     fs.unlink(file_path,(err)=>{
         return res.status(200).send({message:message})
@@ -77,6 +90,7 @@ function removeFilesOfUploads(res,file_path,message){
 module.exports={
     saveProduct,
     uploadImage,
-    getAllProduct
+    getAllProduct,
+    getImageFile
 }
 
