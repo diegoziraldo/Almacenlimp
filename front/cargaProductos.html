@@ -1,21 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Document</title>
+    <title>Ingreso de productos</title>
+
+    <style>
+      #ingresoProductos{
+        padding: 20px;
+        background-color: deepskyblue;
+        margin-top: 2%;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+
+      #borradoProductos{
+        padding: 20px;
+        background-color: silver;
+        margin-top: 2%;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+      .titulo{
+        text-align: center;
+      }
+
+      #cargaImagen{
+        padding: 10px 0px;
+      }
+
+      </style>
+
 </head>
+
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <body>
-    
+    <!-- Ingreso de productos -->
+    <div class="container-fluid col-sm-5" id="ingresoProductos">
     <form action="http://127.0.0.1:4000/product/saveProduct" method="POST">
-        <div class="form-group">
+        <div class="container-fluid titulo">
+          <h3>Ingresar Articulos</h3>
+        </div>
+      
+      <div class="form-group">
           <label for="exampleInputEmail1">Nombre</label>
           <input type="text" class="form-control" id="nombre" name="name">
         </div>
@@ -24,24 +57,46 @@
           <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="form-group">
+          <label for="exampleInputPassword1">Numero de articulo</label>
+          <input type="number" class="form-control" id="description" name="description">
+        </div>
+        <div class="form-group">
             <label for="exampleInputPassword1">Precio</label>
             <input type="number" class="form-control" id="precio" name="price">
         </div>
         
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
 
         <input type="hidden" id="image" name="image">
       </form>
 
-      <form action="form-group">
-        <!-- cargamos imagenes de los productos -->
-        <div>
-            <input type="file" id="imagen" name="imagen">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+      <!-- cargamos imagenes de los productos -->
+      <form action="form-group"  id="cargaImagen">
+ 
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+            <label class="custom-file-label" for="inputGroupFile04">Cargar Imagen</label>
+          </div>
+          <div class="input-group-append" id="cargaImagen">
+            <button class="btn btn-primary" type="button" id="inputGroupFileAddon04">Enviar</button>
+          </div>
+
       </form>
-<<<<<<< HEAD
-=======
+    </div>
+
+
+    <!-- Eliminacion de productos -->
+      <form action="http://127.0.0.1:4000/product/removeProduct" method="POST" class="container-fluid col-sm-5 " id="borradoProductos">
+        <div class="container-fluid titulo">
+          <h3>Borrar Articulos</h3>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Numero de articulo</label>
+          <input type="number" class="form-control" id="description" name="description">
+        </div>
+        <button type="submit" class="btn btn-secondary">Borrar</button>
+      </form>
 
 
 <script
@@ -53,7 +108,7 @@ $(document).ready(function() {
     $.ajax({
   type: 'POST',
   url:'/product/saveImagen',
-  data: $('#imagen').val(),
+  data: $('#image').val(),
 
   success: function(data){
     console.log(data);
@@ -64,7 +119,6 @@ $(document).ready(function() {
 });
 
 </script>
->>>>>>> 9051dd550a335ab111a09df53cb8674aa26d65f2
 </body>
 <script>
   // $(document).ready(function() {

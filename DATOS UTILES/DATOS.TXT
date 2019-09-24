@@ -1,0 +1,2 @@
+cerrar puertos en ubuntu:
+sudo fuser -k 80/tcp 
