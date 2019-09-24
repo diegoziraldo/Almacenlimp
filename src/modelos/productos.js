@@ -5,6 +5,7 @@ var ProducSchema=Schema({
     name:String,
     description:String,
     price:Number,
+    number:Number,  //borrar
     crateAt:String,
     image:String
 })

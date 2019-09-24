@@ -13,6 +13,7 @@ function saveProduct(req ,res){
     product.name=params.name;
     product.description=params.description;
     product.price=params.price;
+    product.number=params.number;   //borrar
     product.createAt=moment().unix();
     product.image=null;
 
