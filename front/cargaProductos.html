@@ -40,6 +40,31 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+<<<<<<< HEAD
+=======
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+
+$(document).ready(function() {
+    $.ajax({
+  type: 'POST',
+  url:'/product/saveImagen',
+  data: $('#imagen').val(),
+
+  success: function(data){
+    console.log(data);
+    $('#image').val()
+}
+});
+    console.log( "ready!" );
+});
+
+</script>
+>>>>>>> 9051dd550a335ab111a09df53cb8674aa26d65f2
 </body>
 <script>
   // $(document).ready(function() {
