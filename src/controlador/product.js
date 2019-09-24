@@ -21,6 +21,7 @@ function saveProduct(req ,res){
 
         if(productStored){
             res.status(200).send({product:productStored})
+            console.log('producto guardado')
         }else{
             res.status(404).send({message:'No se ha guardado el producto'})
         }

@@ -8,20 +8,24 @@
 
     <title>Document</title>
 </head>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 <body>
     
-    <form action="localhost:4000/product/saveProduct" method="POST">
+    <form action="http://127.0.0.1:4000/product/saveProduct" method="POST">
         <div class="form-group">
           <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" class="form-control" id="nombre" name="nombre">
+          <input type="text" class="form-control" id="nombre" name="name">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Descrpcion</label>
-          <input type="text" class="form-control" id="descripcion" name="descripcion">
+          <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Precio</label>
-            <input type="number" class="form-control" id="precio" name="precio">
+            <input type="number" class="form-control" id="precio" name="price">
         </div>
         
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -36,6 +40,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+<<<<<<< HEAD
+=======
 
 
 <script
@@ -58,5 +64,22 @@ $(document).ready(function() {
 });
 
 </script>
+>>>>>>> 9051dd550a335ab111a09df53cb8674aa26d65f2
 </body>
+<script>
+  // $(document).ready(function() {
+  //     $.ajax({
+  //   type: 'POST',
+  //   url:'/product/saveImagen',
+  //   data: $('#imagen').val(),
+  
+  //   success: function(data){
+  //     console.log(data);
+  //     $('#image').val()
+  // }
+  // });
+  //     console.log( "ready!" );
+  // });
+  
+  </script>
 </html>
