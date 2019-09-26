@@ -13,7 +13,7 @@ function saveProduct(req ,res){
     product.name=params.name;
     product.description=params.description;
     product.price=params.price;
-    product.number=params.number;   //borrar
+    product.number=params.number;   
     product.createAt=moment().unix();
     product.image=null;
 
@@ -71,6 +71,7 @@ function uploadImage(req,res){
         return res.status(200).send({message:'No se han subido archivos'})
     }
 }
+
 function getImageFile(req,res){
     var imageFile= req.params.imageFile;
     var pathFile='./src/upload/product/'+imageFile

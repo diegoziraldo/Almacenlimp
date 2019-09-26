@@ -41,6 +41,16 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
 <body>
+    <!-- borrar
+    <form action="http://127.0.0.1:4000/product/saveImage" enctype="multipart/form-data" method="POST">
+      <div>
+          <input type="file" id="imagen" name="image">
+      
+      <button type="submit" class="btn btn-primary">cargar</button>
+    </div>
+    </form> -->
+
+
     <!-- Ingreso de productos -->
     <div class="container-fluid col-sm-5" id="ingresoProductos">
     <form action="http://127.0.0.1:4000/product/saveProduct" method="POST">
@@ -72,30 +82,41 @@
 
 
       <!-- cargamos imagenes de los productos -->
-      <form action="form-group"  id="cargaImagen">
+      <!-- <form action=""  id="cargaImagen">
  
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-            <label class="custom-file-label" for="inputGroupFile04">Cargar Imagen</label>
+            <label class="custom-file-label" for="inputGroupFile04" onClick="cargarImagen()">Cargar Imagen</label>
           </div>
-          <div class="input-group-append" id="cargaImagen">
-            <button class="btn btn-primary" type="button" id="inputGroupFileAddon04">Enviar</button>
+          <div class="input-group-append" id="cargaImage">
+            <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" >Enviar</button>
           </div>
 
+      </form> -->
+
+      <!-- cargamos imagenes de los productos -->
+      <form action="http://127.0.0.1:4000/product/saveImage" enctype="multipart/form-data" method="POST">
+        
+        <div>
+            <input type="file" id="imagen" name="image">
+        
+        <button type="submit" class="btn btn-primary" onClick="cargarImagen()">cargar</button>
+      </div>
       </form>
     </div>
 
 
-    <!-- Eliminacion de productos -->
+    <!-- Modificacion de productos -->
       <form action="http://127.0.0.1:4000/product/removeProduct" method="POST" class="container-fluid col-sm-5 " id="borradoProductos">
         <div class="container-fluid titulo">
-          <h3>Borrar Articulos</h3>
+          <h3>Buscar Articulos</h3>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Numero de articulo</label>
           <input type="number" class="form-control" id="description" name="description">
         </div>
-        <button type="submit" class="btn btn-secondary">Borrar</button>
+        <button type="button" class="btn btn-secondary">Modificar</button>
+        <button type="button" class="btn btn-secondary">Borrar</button>
       </form>
 
 
@@ -104,19 +125,24 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous">
 
+
+
 $(document).ready(function() {
+  function cargarImagen(){
     $.ajax({
   type: 'POST',
-  url:'/product/saveImagen',
-  data: $('#image').val(),
-
+  url:'http://127.0.0.1:4000/product/saveProduct',
+  data: $('#imagen').val(),
+    
   success: function(data){
     console.log(data);
-    $('#image').val()
+    $('#imagen').val()
 }
 });
     console.log( "ready!" );
+}
 });
+
 
 </script>
 </body>
