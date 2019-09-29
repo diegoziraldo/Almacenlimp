@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+   
     <title>Ingreso de productos</title>
 
     <style>
@@ -76,8 +76,9 @@
         </div>
         
         <button type="submit" class="btn btn-primary">Ingresar</button>
+        <a class="btn btn-secondary" href="listaProductos.html">Ir a lista de productos</a>
 
-        <input type="hidden" id="image" name="image">
+     
       </form>
 
 
@@ -95,19 +96,20 @@
       </form> -->
 
       <!-- cargamos imagenes de los productos -->
-      <form action="http://127.0.0.1:4000/product/saveImage" enctype="multipart/form-data" method="POST">
+      <!-- <form action="http://127.0.0.1:4000/product/saveImage" enctype="multipart/form-data" method="POST">
         
         <div>
             <input type="file" id="imagen" name="image">
         
         <button type="submit" class="btn btn-primary" onClick="cargarImagen()">cargar</button>
+
       </div>
-      </form>
+      </form> -->
     </div>
 
 
     <!-- Modificacion de productos -->
-      <form action="http://127.0.0.1:4000/product/removeProduct" method="POST" class="container-fluid col-sm-5 " id="borradoProductos">
+      <!-- <form action="http://127.0.0.1:4000/product/removeProduct" method="POST" class="container-fluid col-sm-5 " id="borradoProductos">
         <div class="container-fluid titulo">
           <h3>Buscar Articulos</h3>
         </div>
@@ -117,34 +119,13 @@
         </div>
         <button type="button" class="btn btn-secondary">Modificar</button>
         <button type="button" class="btn btn-secondary">Borrar</button>
-      </form>
+      </form> -->
 
 
 <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous">
-
-
-
-$(document).ready(function() {
-  function cargarImagen(){
-    $.ajax({
-  type: 'POST',
-  url:'http://127.0.0.1:4000/product/saveProduct',
-  data: $('#imagen').val(),
-    
-  success: function(data){
-    console.log(data);
-    $('#imagen').val()
-}
-});
-    console.log( "ready!" );
-}
-});
-
-
-</script>
+  crossorigin="anonymous"></script>
 </body>
 <script>
   // $(document).ready(function() {

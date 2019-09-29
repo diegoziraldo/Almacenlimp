@@ -35,7 +35,7 @@ function getAllProduct(req,res){
     if(req.params.page){
         page=req.params.page;
     }
-    var itemsPerPage=5;
+    var itemsPerPage=25;
     Product.find().sort('_id').paginate(page,itemsPerPage,(err,product,total)=>{
         if(err) return res.status(200).send({message:'Error en la peticion'})
         if(!product) return res.status(404).send({message:'No hay productos para mostrar'});
@@ -50,19 +50,27 @@ function getAllProduct(req,res){
     })
 }
 function uploadImage(req,res){
+    console.log(req.body.productId)
+    var productid=req.body.productId
     if(req.files){
         var file_path=req.files.image.path;
         console.log(file_path)
         var file_split=file_path.split('/');
         console.log(file_split)
-        var file_name=file_split[3];
+        var file_name=file_split[2];
         console.log(file_name)
         var ext_split=file_name.split('.');
         console.log(ext_split)
         var file_ext=ext_split[1]
 
         if(file_ext == 'png' || file_ext=='jpg'|| file_ext=='jpeg' ||file_ext == 'gif'){
-                return res.status(200).send({image:file_name}) 
+               Product.findByIdAndUpdate(productid,{image:file_name},{new:true},(err,productUpdated)=>{
+                   if(err) return res.status(500).send({message:'Erro en la peticion'})
+
+                   if(!productUpdated) return res.status(404).send({message:'No se ha podido Actualizar'})
+
+                    return res.status(200).send({product:productUpdated})
+               })
         }else{
             removeFilesOfUploads(res,file_path,'La extencion no es valida')
            
@@ -74,7 +82,7 @@ function uploadImage(req,res){
 
 function getImageFile(req,res){
     var imageFile= req.params.imageFile;
-    var pathFile='./src/upload/product/'+imageFile
+    var pathFile='./src/imagenes/'+imageFile
 
     fs.exists(pathFile,(exists)=>{
         if(exists){

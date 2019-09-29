@@ -6,7 +6,7 @@ var multipart=require('connect-multiparty')
 var ProductController=require('../controlador/product')
 var api=express.Router();
 
-var md_upload = multipart({uploadDir:'./src/upload/product'})
+var md_upload = multipart({uploadDir:'./src/imagenes'})
 var md_auth = require('../middleware/auth')
 
 
