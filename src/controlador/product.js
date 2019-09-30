@@ -4,12 +4,34 @@ var Product=require('../modelos/productos');
 var moment=require('moment')
 var mongoosePaginate = require('mongoose-pagination');
 var fs =require('fs');
-var path=require('path')
+var path=require('path');
+
+// guardar Categorias
+function saveCategory(req ,res){
+    var category=new Category();
+    var params=req.body;
+
+    category.categ=params.category;
+
+
+    product.save((err,productStored)=>{
+        if(err) return res.status(500).send({message:'Error al guardar el producto'})
+
+        if(productStored){
+            res.status(200).send({product:productStored})
+            console.log('producto guardado')
+        }else{
+            res.status(404).send({message:'No se ha guardado el producto'})
+        }
+    })
+}
+
 
 function saveProduct(req ,res){
     var product=new Product();
     var params=req.body;
 
+    product.category=params.category;
     product.name=params.name;
     product.description=params.description;
     product.price=params.price;
@@ -28,6 +50,7 @@ function saveProduct(req ,res){
         }
     })
 }
+
 function getAllProduct(req,res){
 
     var page=1;

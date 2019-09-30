@@ -3,10 +3,11 @@ var Schema =mongoose.Schema;
 
 
 var ProducSchema=Schema({
+    category:String,
     name:String,
     description:String,
     price:Number,
-    number:Number,  //borrar
+    number:Number,  
     crateAt:String,
     image:String
 })
