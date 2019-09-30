@@ -18,7 +18,7 @@ app.use((req, res, next) => {
  
     next();
 });
-
+app.use(express.static(__dirname + '/View'));
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json());
 

@@ -9,24 +9,28 @@ var path=require('path')
 function saveProduct(req ,res){
     var product=new Product();
     var params=req.body;
+    if(params.name &&params.description && params.price && params.number){
+        product.name=params.name;
+        product.description=params.description;
+        product.price=params.price;
+        product.number=params.number;   
+        product.createAt=moment().unix();
+        product.image=null;
 
-    product.name=params.name;
-    product.description=params.description;
-    product.price=params.price;
-    product.number=params.number;   
-    product.createAt=moment().unix();
-    product.image=null;
+        product.save((err,productStored)=>{
+            if(err) return res.status(500).send({message:'Error al guardar el producto'})
 
-    product.save((err,productStored)=>{
-        if(err) return res.status(500).send({message:'Error al guardar el producto'})
-
-        if(productStored){
-            res.status(200).send({product:productStored})
-            console.log('producto guardado')
-        }else{
-            res.status(404).send({message:'No se ha guardado el producto'})
-        }
-    })
+            if(productStored){
+                res.status(200).send({product:productStored})
+                console.log('producto guardado')
+            }else{
+                res.status(404).send({message:'No se ha guardado el producto'})
+            }
+        })
+    }else{
+        
+        res.sendFile(path.join(__dirname+'/error.html'));
+    }
 }
 function getAllProduct(req,res){
 
