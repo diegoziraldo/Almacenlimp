@@ -9,6 +9,14 @@
     <title>Ingreso de productos</title>
 
     <style>
+      #ingresoCategorias{
+        padding: 20px;
+        background-color: cyan;
+        margin-top: 2%;
+        border: 2px solid black;
+        border-radius: 5px;
+      }
+
       #ingresoProductos{
         padding: 20px;
         background-color: deepskyblue;
@@ -50,6 +58,23 @@
     </div>
     </form> -->
 
+    <!-- Ingreso de categorias -->
+    <div class="container-fluid col-sm-5" id="ingresoCategorias">
+    <form action="http://127.0.0.1:4000/product/saveProduct" method="POST">
+      <div class="container-fluid titulo">
+        <h3>Ingresar Categorias</h3>
+      </div>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="categoria">
+      </div>
+      <button type="submit" class="btn btn-info">Ingresar</button>
+   
+    </form>
+  </div>
+
+
 
     <!-- Ingreso de productos -->
     <div class="container-fluid col-sm-5" id="ingresoProductos">
@@ -57,7 +82,15 @@
         <div class="container-fluid titulo">
           <h3>Ingresar Articulos</h3>
         </div>
-      
+        <div class="form-group">
+            <label for="exampleInputEmail1">Categoria</label>
+            <div class="input-group mb-3">
+                <select class="custom-select" id="inputGroupSelect01">
+                  <option selected>...</option>
+
+                </select>
+              </div>
+          </div>
       <div class="form-group">
           <label for="exampleInputEmail1">Nombre</label>
           <input type="text" class="form-control" id="nombre" name="name">
