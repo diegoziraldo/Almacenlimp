@@ -9,6 +9,7 @@ var app = express();
 
 var user_routes=require('./routes/user')
 var product_routes=require('./routes/product')
+var categoria_routes=require('./routes/categorias')
 
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 
 app.use('/user',user_routes)
 app.use('/product',product_routes)
+app.use('/categorias',categoria_routes)
 
 
 
