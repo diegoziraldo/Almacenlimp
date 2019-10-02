@@ -42,7 +42,7 @@
         <table id="tablaProductos">
 
         </table>
-        <a class="btn btn-secondary" href="cargaProductos.html">Cargar Productos</a>
+        <a class="btn btn-secondary" href="/product/saveProduct">Cargar Productos</a>
 
 </body>
 <script
@@ -58,7 +58,7 @@
         console.log(data)
       var table='<tr><th>Codigo</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
         for(var i =0;i<data.product.length;i++){
-            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></td></tr></a>'
+            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">delete</i></button></td></tr>'
         }
         $('#tablaProductos').append(table)
   }

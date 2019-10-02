@@ -9,7 +9,9 @@ var ProducSchema=Schema({
     price:Number,
     number:Number,  
     crateAt:String,
-    image:String
+    image:String,
+    category: { type: Schema.Types.ObjectId, ref: 'Category' },
+
 })
 
 

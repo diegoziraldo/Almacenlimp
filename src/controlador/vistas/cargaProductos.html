@@ -110,7 +110,7 @@
         </div>
         
         <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
-        <a class="btn btn-primary btn-sm btn-block" href="listaProductos.html">Ir a lista de productos</a>
+        <a class="btn btn-primary btn-sm btn-block" href="/product/listProduct">Ir a lista de productos</a>
 
      
       </form>
@@ -186,7 +186,7 @@
              console.log(data)
            var select=''
              for(var i =0;i<data.categoria.length;i++){
-              select+='<option value="'+data.categoria[i]._id+'">'+data.categoria[i].categ+'<option>'
+              select+='<option value="'+data.categoria[i]._id+'">'+data.categoria[i].categ+'</option>'
              }
              $('#inputGroupSelect01').append(select)
              

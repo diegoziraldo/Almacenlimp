@@ -6,23 +6,29 @@ var mongoosePaginate = require('mongoose-pagination');
 var fs =require('fs');
 var path=require('path');
 
-
+function saveProductGet(req,res){
+    res.sendFile(path.join(__dirname+'/vistas/cargaProductos.html'));
+}
+function getProduct(req,res){
+    res.sendFile(path.join(__dirname+'/vistas/listaProductos.html'));
+}
 function saveProduct(req ,res){
     var product=new Product();
     var params=req.body;
-    if(params.name &&params.description && params.price && params.number){
+    if(params.name &&params.description && params.price && params.number && params.categoria){
         product.name=params.name;
         product.description=params.description;
         product.price=params.price;
         product.number=params.number;   
+        product.category=params.categoria;
         product.createAt=moment().unix();
         product.image=null;
 
         product.save((err,productStored)=>{
             if(err) return res.status(500).send({message:'Error al guardar el producto'})
-
+            
             if(productStored){
-                res.status(200).send({product:productStored})
+                res.sendFile(path.join(__dirname+'/vistas/listaProductos.html'));
                 console.log('producto guardado')
             }else{
                 res.status(404).send({message:'No se ha guardado el producto'})
@@ -30,7 +36,7 @@ function saveProduct(req ,res){
         })
     }else{
         
-        res.sendFile(path.join(__dirname+'/error.html'));
+        res.sendFile(path.join(__dirname+'/vistas/Error.html'));
     }
 }
 
@@ -108,6 +114,8 @@ module.exports={
     saveProduct,
     uploadImage,
     getAllProduct,
-    getImageFile
+    getImageFile,
+    saveProductGet,
+    getProduct
 }
 
