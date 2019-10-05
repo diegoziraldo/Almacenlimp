@@ -11,6 +11,7 @@ var ProducSchema=Schema({
     crateAt:String,
     image:String,
     category: { type: Schema.Types.ObjectId, ref: 'Category' },
+    eliminado:Boolean
 
 })
 

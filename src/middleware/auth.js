@@ -21,6 +21,8 @@ exports.ensureAuth = function(req,res,next){
             message:'El token no es valido'
         })
     }
-    
+    req.user=payload;
+
+    next();
 
 }
