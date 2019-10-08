@@ -11,6 +11,10 @@ function saveUser(req,res){
         user.name=params.name;
         user.surname=params.surname;
         user.email=params.email;
+        user.CreateAt=moment().unix();
+        user.role=params.role;
+        user.image=null
+
 
 
         User.find({$or: [

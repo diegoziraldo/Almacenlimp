@@ -15,6 +15,9 @@ api.get('/listProduct',ProductController.getProduct)
 api.get('/getAllProduct/:page?',ProductController.getAllProduct)
 api.post('/saveImage',md_upload,ProductController.uploadImage)
 api.get('/getImageFile/:imageFile',ProductController.getImageFile)
+api.post('/deleteProduct',ProductController.eliminarProducto)
+api.post('/getProduct',ProductController.getProductById)
+api.post('/editProduct',ProductController.editarProducto)
 
 
 module.exports=api

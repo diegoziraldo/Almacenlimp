@@ -22,6 +22,7 @@ function saveProduct(req ,res){
         product.number=params.number;   
         product.category=params.categoria;
         product.createAt=moment().unix();
+        product.eliminado=false;
         product.image=null;
 
         product.save((err,productStored)=>{
@@ -48,7 +49,7 @@ function getAllProduct(req,res){
         page=req.params.page;
     }
     var itemsPerPage=25;
-    Product.find().sort('_id').paginate(page,itemsPerPage,(err,product,total)=>{
+    Product.find({ eliminado: {$ne:true}}).sort('_id').paginate(page,itemsPerPage,(err,product,total)=>{
         if(err) return res.status(200).send({message:'Error en la peticion'})
         if(!product) return res.status(404).send({message:'No hay productos para mostrar'});
 
@@ -59,6 +60,15 @@ function getAllProduct(req,res){
             
         })
 
+    })
+}
+function getProductById(req,res){
+        var prodId=req.body.id;
+    Product.findById((prodId),(err,product)=>{
+        if(err) return res.status(200).send({message:'Error en la peticion'})
+        if(!product) return res.status(404).send({message:'No hay productos para mostrar'});
+
+        return res.status(200).send({product:product})
     })
 }
 function uploadImage(req,res){
@@ -104,7 +114,28 @@ function getImageFile(req,res){
         }
     })
 }
-
+function eliminarProducto(req,res){
+    var idProduct=req.body.id;
+    Product.findByIdAndUpdate(idProduct,{eliminado:true},{new:true},(err,userUpdated)=>{
+        if(err) return res.status(500).send({message:'Error en la peticion'})
+        if(!userUpdated) return res.status(404).send({message:'No se ha podido eliminar el usuario'})
+        return res.status(200).send({result:"ok"})
+        //res.sendFile(path.join(__dirname+'/vistas/listaProductos.html'));
+    })
+}
+function editarProducto(req,res){
+    var idProduct=req.body.productId;
+    var product=req.body;
+console.log(idProduct)
+console.log(product)
+    delete product.password;
+    Product.findByIdAndUpdate(idProduct,product,{new:true},(err,userUpdated)=>{
+        if(err) return res.status(500).send({message:'Error en la peticion'})
+        if(!userUpdated) return res.status(404).send({message:'No se ha podido editar el usuario'})
+        // return res.status(200).send({result:userUpdated})
+        res.sendFile(path.join(__dirname+'/vistas/listaProductos.html'));
+    })
+}
 function removeFilesOfUploads(res,file_path,message){
     fs.unlink(file_path,(err)=>{
         return res.status(200).send({message:message})
@@ -116,6 +147,9 @@ module.exports={
     getAllProduct,
     getImageFile,
     saveProductGet,
-    getProduct
+    getProduct,
+    eliminarProducto,
+    getProductById,
+    editarProducto
 }
 
