@@ -3,6 +3,7 @@
 var bcrypt=require('bcrypt-nodejs')
 var User= require('../modelos/usuario');
 var jwt=require('../service/jwt')
+var path = require('path');
 function saveUser(req,res){
     var params=req.body;
     var user =new User();
@@ -47,6 +48,14 @@ function saveUser(req,res){
         })
     }
 }
+function getLoginUser(req,res){
+    res.sendFile(path.join(__dirname + '/vistas/logeo.html'));
+}
+
+function getRegisterUser(req,res){
+    res.sendFile(path.join(__dirname + '/vistas/registro.html'));
+}
+
 
 function loginUser(req,res){
     var params=req.body;
@@ -64,7 +73,7 @@ function loginUser(req,res){
                         return res.status(200).send({token:jwt.createToken(user)})
                     }else{
                         user.password=undefined;
-                        return res.status(200).send({user})
+                        res.sendFile(path.join(__dirname + '/vistas/bararaNavegacion.html'));
                     }
                 }else{
                     return res.status(404).send({message:'el usuario no se puede identificar'})
@@ -79,7 +88,9 @@ function loginUser(req,res){
 module.exports={
 
     saveUser,
-    loginUser
+    loginUser,
+    getLoginUser,
+    getRegisterUser
    
 
 }
