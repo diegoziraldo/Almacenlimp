@@ -83,31 +83,8 @@
 
     <h1>Lista de productos</h1>
 
-    <table id="example" class="display" style="width:100%">
-      <thead>
-          <tr>
-              
-            <th>Nombre</th>
-            <th>Codigo</th>
-              <th>Descripcion</th>
-              <th>Precio</th>
-              <th>Categoria</th>
-              <th>Id</th>
-            
-          </tr>
-      </thead>
-      <tfoot>
-        <tr>
-          
-          <th>Nombre</th>
-          <th>Codigo</th>
-          <th>Descripcion</th>
-          <th>Precio</th>
-          <th>Categoria</th>
-          <th>Id</th>
-               
-      </tr>
-      </tfoot>
+    <table id="tablaProductos" class="table" style="width:100%">
+     
   </table>
         <a class="btn btn-secondary" href="/product/saveProduct">Cargar Productos</a>
 
@@ -116,91 +93,91 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "processing": true,
-        "serverSide": true,
-        "ajax": {
-            "url": "http://127.0.0.1:4000/product/getAllProduct?page=1&cant=10",
-            "type": "POST"
-        },
-        "columns": [
-            { "data": "name" },
-            { "data": "number" },
-            { "data": "description" },
-            { "data": "price" },
-            { "data": "category.categ" },
-            { "data": "_id" }
-        ]
-    } );
-} );
-  //     $.ajax({
-  //   type: 'GET',
-  //   url:'http://127.0.0.1:4000/product/getAllProduct?page=1&cant=10',
-  //   success: function(data){
-  //       console.log(data)
-  //     var table='<tr><th>Codigo</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
-  //       for(var i =0;i<data.product.length;i++){
-  //           table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
-  //       }
-  //       $('#tablaProductos').append(table)
-  //     }
-  //   });
+//     $('#example').DataTable( {
+//         "processing": true,
+//         "serverSide": true,
+//         "ajax": {
+//             "url": "http://127.0.0.1:4000/product/getAllProduct?page=1&cant=10",
+//             "type": "POST"
+//         },
+//         "columns": [
+//             { "data": "name" },
+//             { "data": "number" },
+//             { "data": "description" },
+//             { "data": "price" },
+//             { "data": "category.categ" },
+//             { "data": "_id" }
+//         ]
+//     } );
+// } );
+      $.ajax({
+    type: 'GET',
+    url:'http://127.0.0.1:4000/product/getAllProduct?page=1&cant=10',
+    success: function(data){
+        console.log(data)
+      var table='<tr><th>Codigo</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
+        for(var i =0;i<data.product.length;i++){
+            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
+        }
+        $('#tablaProductos').append(table)
+      }
+    });
 
-  // $( "#tablaProductos").on( "click","#imagen" ,function() {
-  // console.log( $( this ).attr('name') );
-  // $('#productId').val($( this ).attr('name'))
-  // });
+  $( "#tablaProductos").on( "click","#imagen" ,function() {
+  console.log( $( this ).attr('name') );
+  $('#productId').val($( this ).attr('name'))
+  });
 
 
-  // $("#tablaProductos").on( "click","#borrar" ,function() {
-  // var idProd=$( this ).attr('name')
-  //           Swal.fire({
-  //       title: 'Estas seguro de borrar el producto?',
-  //       text: "Si lo hace, no se puede recuperar!",
-  //       type: 'warning',
-  //       showCancelButton: true,
-  //       confirmButtonColor: '#3085d6',
-  //       cancelButtonColor: '#d33',
-  //       confirmButtonText: 'Eliminar!'
-  //     }).then((result) => {
-  //       if(result.value){
-  //       $.ajax({
-  //         type: 'POST',
-  //         data:{id: idProd},
-  //         url:'http://127.0.0.1:4000/product/deleteProduct',
-  //         success: function(data){
+  $("#tablaProductos").on( "click","#borrar" ,function() {
+  var idProd=$( this ).attr('name')
+            Swal.fire({
+        title: 'Estas seguro de borrar el producto?',
+        text: "Si lo hace, no se puede recuperar!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar!'
+      }).then((result) => {
+        if(result.value){
+        $.ajax({
+          type: 'POST',
+          data:{id: idProd},
+          url:'http://127.0.0.1:4000/product/deleteProduct',
+          success: function(data){
       
-  //         Swal.fire(
-  //           'Deleted!',
-  //           'El producto fue eliminado.',
-  //           'success'
-  //         )
-  //         window.location.href='http://127.0.0.1:4000/product/listProduct'
-  //       }
+          Swal.fire(
+            'Deleted!',
+            'El producto fue eliminado.',
+            'success'
+          )
+          window.location.href='http://127.0.0.1:4000/product/listProduct'
+        }
       
-  //     })
-  //   }
-  //   })
-  // })
-  //   $("#tablaProductos").on( "click","#edit" ,function() {
-  // var idProd=$(this).attr('name')
-  //       $.ajax({
-  //         type: 'POST',
-  //         url:'http://127.0.0.1:4000/product/getProduct',
-  //         data:{id:idProd},
-  //         success: function(data){
-  //           console.log(data)
-  //           $('#productIdModel').val(data.product._id)
-  //           $('#nombreModel').val(data.product.name)
-  //           $('#descriptionModel').val(data.product.description)
-  //           $('#numberModel').val(data.product.number)
-  //           $('#precioModel').val(data.product.price)
+      })
+    }
+    })
+  })
+    $("#tablaProductos").on( "click","#edit" ,function() {
+  var idProd=$(this).attr('name')
+        $.ajax({
+          type: 'POST',
+          url:'http://127.0.0.1:4000/product/getProduct',
+          data:{id:idProd},
+          success: function(data){
+            console.log(data)
+            $('#productIdModel').val(data.product._id)
+            $('#nombreModel').val(data.product.name)
+            $('#descriptionModel').val(data.product.description)
+            $('#numberModel').val(data.product.number)
+            $('#precioModel').val(data.product.price)
          
-  //       }
-  //     })
-  //   })
+        }
+      })
+    })
  
-
+})
 
   
   

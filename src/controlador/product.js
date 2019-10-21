@@ -53,33 +53,18 @@ function getAllProduct(req, res) {
         itemsPerPage = parseInt(req.query.cant);
     }
 
-    // Product.find({ eliminado: { $ne: true } }).populate("category").sort('_id').paginate(page, itemsPerPage, (err, product, total) => {
-    //     if (err) return res.status(200).send({ message: 'Error en la peticion' })
-    //     if (!product) return res.status(404).send({ message: 'No hay productos para mostrar' });
+    Product.find({ eliminado: { $ne: true } }).populate("category").sort('_id').paginate(page, itemsPerPage, (err, product, total) => {
+        if (err) return res.status(200).send({ message: 'Error en la peticion' })
+        if (!product) return res.status(404).send({ message: 'No hay productos para mostrar' });
 
-    //     return res.status(200).send({
-    //         data:product,
-    //         recordsTotal:total,
-    //         // pages: Math.ceil(total / itemsPerPage)
+        return res.status(200).send({
+            product
+          
 
-    //     })
+        })
 
-    // })
-    Product.find({}).populate('category','categ').exec((err, product) => {
-             if (err) return res.status(200).send({ message: 'Error en la peticion' })
-         if (!product) return res.status(404).send({ message: 'No hay productos para mostrar' });
-                console.log(product)
-                
-             return res.status(200).send({
-                 draw:1,
-                recordsTotal:product.length,
-                data:product,
-        //         recordsTotal:total,
-        //         // pages: Math.ceil(total / itemsPerPage)
-    
-             });
-    
-         })
+    })
+   
 }
 function getProductById(req, res) {
     var prodId = req.body.id;
