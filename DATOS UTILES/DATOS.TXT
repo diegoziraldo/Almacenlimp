@@ -7,3 +7,4 @@ mongodump --db + "nombre de la base de datos"
 *PARA ABRIR UN BACKUP DE LA BASE DE DATOS EN MONGO USAMOS:
 mongorestore --db + "nombre de la base de datos" + dump/nombre de la carpeta que querramos recuperar
 https://www.youtube.com/watch?v=NbAFz5rxoDs
+mongorestore --db almacenDiego BACKUPS/dump/almacenDiego 
