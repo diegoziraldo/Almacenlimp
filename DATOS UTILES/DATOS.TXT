@@ -8,3 +8,6 @@ mongodump --db + "nombre de la base de datos"
 mongorestore --db + "nombre de la base de datos" + dump/nombre de la carpeta que querramos recuperar
 https://www.youtube.com/watch?v=NbAFz5rxoDs
 mongorestore --db almacenDiego BACKUPS/dump/almacenDiego 
+
+*PERSONALIZAR UN BOTON CON CSS Y HTML
+https://www.youtube.com/watch?v=aPdhxyk85x0
