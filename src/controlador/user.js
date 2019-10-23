@@ -4,11 +4,12 @@ var bcrypt=require('bcrypt-nodejs')
 var User= require('../modelos/usuario');
 var jwt=require('../service/jwt')
 var path = require('path');
+var moment = require('moment')
 function saveUser(req,res){
     var params=req.body;
     var user =new User();
 
-    if(params.name && params.surname && params.email && params.password){
+    if(params.name  && params.email && params.password){
         user.name=params.name;
         user.surname=params.surname;
         user.email=params.email;
@@ -32,7 +33,7 @@ function saveUser(req,res){
                         if(err) return res.status(500).send({message:'Error al guardar el usuario'})
         
                         if(userStored){
-                            res.status(200).send({user:userStored})
+                            res.sendFile(path.join(__dirname + '/vistas/logeo.html'));
                         }else{
                             res.status(404).send({message:'No se ha registrado el usuario'})
                         }

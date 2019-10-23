@@ -95,7 +95,7 @@ function uploadImage(req, res) {
 
                 if (!productUpdated) return res.status(404).send({ message: 'No se ha podido Actualizar' })
 
-                return res.status(200).send({ product: productUpdated })
+                return res.redirect('/product/listProduct')
             })
         } else {
             removeFilesOfUploads(res, file_path, 'La extencion no es valida')

@@ -27,16 +27,19 @@
                             <form action="http://127.0.0.1:4000/product/saveImage" enctype="multipart/form-data" method="POST">        
                         <div>
                              <input type="hidden" id="productId" name="productId">
-                             <input type="file" id="imagen" name="image">
-        
-                        <button type="submit" class="btn btn-primary" >cargar</button>
+
+                             <input type="file" id="imagen" name="image">                            
+                             <span class="badge badge-secondary">Si quiere cambiar la imagen, solo cargue una</span>
+                             <div id="imagenFoto"></div>
+                     
 
                             </div>
-                            </form>
+                            
                       </div>
                       <div class="modal-footer">
-                       
-                      </div>        
+                        <button type="submit" class="btn btn-primary" >cargar</button>
+                      </div> 
+                    </form>       
                     </div>
                   </div>
               </div>
@@ -117,7 +120,7 @@ $(document).ready(function() {
         console.log(data)
       var table='<tr><th>Codigo</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
         for(var i =0;i<data.product.length;i++){
-            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
+            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" myimg="'+data.product[i].image+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
         }
         $('#tablaProductos').append(table)
       }
@@ -126,6 +129,12 @@ $(document).ready(function() {
   $( "#tablaProductos").on( "click","#imagen" ,function() {
   console.log( $( this ).attr('name') );
   $('#productId').val($( this ).attr('name'))
+  var imagen=$( this ).attr('myimg')
+
+ 
+              var html='<img src="http://127.0.0.1:4000/product/getImageFile/'+imagen +'"/>'
+              $('#imagenFoto').html(html)
+      
   });
 
 
