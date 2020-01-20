@@ -115,12 +115,12 @@ $(document).ready(function() {
 // } );
       $.ajax({
     type: 'GET',
-    url:'http://127.0.0.1:4000/product/getAllProduct?page=1&cant=10',
+    url:'http://127.0.0.1:4000/product/getAllProduct?page=1&cant=1000',
     success: function(data){
         console.log(data)
-      var table='<tr><th>Codigo</th><th>Nombre</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
+      var table='<tr><th>Codigo</th><th>Nombre</th><th>Categoria</th><th>Descripcion</th><th>Precio</th><th>Acciones</th></tr>'
         for(var i =0;i<data.product.length;i++){
-            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" myimg="'+data.product[i].image+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
+            table+='<tr><td>'+data.product[i].number+'</td><td>'+data.product[i].name+'</td><td>'+data.product[i].category.categ+'</td><td>'+data.product[i].description+'</td><td>'+data.product[i].price+'</td><td><button name="'+data.product[i]._id+'" myimg="'+data.product[i].image+'" type="button" class="btn btn-primary" id="imagen" data-toggle="modal" data-target="#cargaImagen"><i class="material-icons">add_photo_alternate</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-success" id="edit" data-toggle="modal" data-target="#cargaEdit"><i class="material-icons">edit</i></button></td><td><button name="'+data.product[i]._id+'" type="button" class="btn btn-danger" id="borrar" data-toggle="modal" ><i class="material-icons">delete</i></button></td></tr>'
         }
         $('#tablaProductos').append(table)
       }

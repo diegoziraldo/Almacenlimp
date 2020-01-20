@@ -29,7 +29,7 @@ function saveProduct(req, res) {
             if (err) return res.status(500).send({ message: 'Error al guardar el producto' })
 
             if (productStored) {
-                res.sendFile(path.join(__dirname + '/vistas/listaProductos.html'));
+                res.sendFile(path.join(__dirname + '/vistas/cargaProductos.html'));
                 console.log('producto guardado')
             } else {
                 res.status(404).send({ message: 'No se ha guardado el producto' })
@@ -53,18 +53,20 @@ function getAllProduct(req, res) {
         itemsPerPage = parseInt(req.query.cant);
     }
 
-    Product.find({ eliminado: { $ne: true } }).populate("category").sort('_id').paginate(page, itemsPerPage, (err, product, total) => {
+    Product.find({ eliminado: { $ne: true } }).populate("category").sort('number').paginate(page, itemsPerPage, (err, product, total ) => {
         if (err) return res.status(200).send({ message: 'Error en la peticion' })
         if (!product) return res.status(404).send({ message: 'No hay productos para mostrar' });
+        
+        
 
+        
         return res.status(200).send({
             product
-          
 
         })
 
     })
-   
+
 }
 function getProductById(req, res) {
     var prodId = req.body.id;

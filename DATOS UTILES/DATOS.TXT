@@ -1,5 +1,5 @@
 *CERRAR PUERTOS EN UBUNTU:
-sudo fuser -k 80/tcp 
+sudo fuser -k (numero de puerto)/tcp 
 
 *PARA HACER UN BACKUP DE LA BASE DE DATOS DE MONGO USAMOS:
 mongodump --db + "nombre de la base de datos" 

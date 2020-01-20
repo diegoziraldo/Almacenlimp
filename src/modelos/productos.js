@@ -7,11 +7,15 @@ var ProducSchema=Schema({
     name:String,
     description:String,
     price:Number,
-    number:Number,  
+    number:Number, 
     crateAt:String,
     image:String,
     category: { type: Schema.Types.ObjectId, ref: 'Category' },
-    eliminado:Boolean
+    eliminado:Boolean,
+    
+    /* agregado test */
+    litros: String,
+    fragancias: String
 
 })
 
